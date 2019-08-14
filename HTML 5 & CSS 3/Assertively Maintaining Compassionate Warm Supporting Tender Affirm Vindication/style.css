@@ -1,0 +1,59 @@
+html {
+  background-color: springgreen;
+}
+
+#mission {
+  color: skyblue;
+  text-shadow: 2px 2px .5 silver;
+}
+
+#thanks {
+  color: silver;
+  font-weight: bold;
+  text-align: center;
+}
+
+#topper > div {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+#topper > div > figure > img {
+  border-color: skyblue;
+  border-width: thin;
+}
+
+#topper > div > h1 {
+  color: purple;
+  font-style: italic;
+}
+
+#topper > div > sup > h3 {
+  color: gold;
+}
+
+a:link {
+  color: hotpink;
+}
+
+a:visited {
+  color: coral;
+}
+
+a:hover {
+  color: gold;
+}
+
+a:active {
+  color: white;
+  text-shadow: 2px 2px 1 black;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  table-layout: fixed;
+  width: auto;
+}
