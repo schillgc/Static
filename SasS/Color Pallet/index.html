@@ -6,12 +6,26 @@
     <title>Color Palette — Sass exercise</title>
     <link href="main.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="about_us">
     <main>
       <h1>Color Palette</h1>
+      <p class="intro">A small Sass exercise showing a coordinated set of design tokens: a calm background, readable text, and a teal accent.</p>
       <p>This small Sass exercise demonstrates shared color variables and stylesheet organization.</p>
       <p><a href="#palette">View the palette area</a></p>
-      <section id="palette" aria-label="Color palette example"></section>
+      <section id="palette" class="palette-grid" aria-label="Color palette swatches">
+        <article class="palette-card">
+          <div class="swatch swatch--background" aria-hidden="true"></div>
+          <div class="palette-copy"><h2>Canvas</h2><code>#f4f7fa</code></div>
+        </article>
+        <article class="palette-card">
+          <div class="swatch swatch--text" aria-hidden="true"></div>
+          <div class="palette-copy"><h2>Text</h2><code>#263548</code></div>
+        </article>
+        <article class="palette-card">
+          <div class="swatch swatch--highlight" aria-hidden="true"></div>
+          <div class="palette-copy"><h2>Accent</h2><code>#0f766e</code></div>
+        </article>
+      </section>
     </main>
   </body>
 </html>
