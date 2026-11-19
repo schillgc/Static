@@ -1,3 +1,44 @@
 body.about_us {
-	font-size: 100 px;
+  font-size: 1rem;
 }
+
+main {
+  width: min(100% - 2rem, 920px);
+  margin: 0 auto;
+  padding: clamp(2rem, 7vw, 5rem) 0;
+}
+
+h1 {
+  margin: 0 0 .75rem;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -.04em;
+}
+
+.intro {
+  max-width: 650px;
+  margin-bottom: 2rem;
+  color: #526477;
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+.palette-card {
+  overflow: hidden;
+  border: 1px solid #dce4ec;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(31 49 68 / 7%);
+}
+
+.swatch { height: 130px; }
+.swatch--background { background: $background; }
+.swatch--text { background: $text-color; }
+.swatch--highlight { background: $highlighted-text-color; }
+
+.palette-copy { padding: 1rem; }
+.palette-copy h2 { margin: 0 0 .4rem; font-size: 1rem; }
+.palette-copy code { color: #526477; font-size: .85rem; }
