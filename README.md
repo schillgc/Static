@@ -42,3 +42,7 @@ python -m unittest discover -s tests -v
 ```
 
 The workflow validates document language/title, image alternative text, stable local asset references, and the absence of tracked macOS metadata. The older Elena/Lori photo exercise is excluded from local-asset checks because its referenced media is not present in the repository; restore those files only from an authorized source and review consent/usage rights first.
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for this repository's security, privacy, and responsible-use guidance.
