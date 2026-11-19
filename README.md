@@ -15,7 +15,7 @@ A collection of small, static front-end learning projects and experiments. The r
 - **Typography** — typography-focused HTML/CSS exercise.
 - **Lift Louisiana** — Git submodule reference; its source is maintained in the separate Lift Louisiana repository.
 
-### SasS
+### Sass
 
 - **Blog** — starter and finished Sass/CSS versions.
 - **Color Pallet** — Sass variables, partials, and color-palette exercise.
@@ -31,3 +31,14 @@ No repository-wide build system is currently defined. Work from the individual p
 ## Repository hygiene
 
 Generated operating-system metadata such as `.DS_Store` and editor artifacts should not be committed. Existing historical files and project assets are retained; this catalog does not remove or relocate them.
+
+
+## Quality checks
+
+Run the dependency-free static archive checks from the repository root:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+The workflow validates document language/title, image alternative text, stable local asset references, and the absence of tracked macOS metadata. The older Elena/Lori photo exercise is excluded from local-asset checks because its referenced media is not present in the repository; restore those files only from an authorized source and review consent/usage rights first.
