@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-labelledby="title desc">
+  <title id="title">Kids supporting kids</title>
+  <desc id="desc">Two colorful hands meet beneath a heart, symbolizing care and encouragement.</desc>
+  <rect width="640" height="260" rx="24" fill="#f3f7fb"/>
+  <path d="M320 72c-32-45-93-17-77 28 11 31 77 73 77 73s66-42 77-73c16-45-45-73-77-28Z" fill="#ef7990"/>
+  <path d="M90 194c35-42 69-64 101-62 22 1 42 16 58 32l72 56c11 9 8 26-6 31-7 3-16 2-22-3l-44-30 31 28c12 11 2 31-14 27-5-1-9-4-13-7l-46-34 24 21c12 11 0 30-15 25-4-1-8-3-11-6l-65-51-25 22c-14 12-34 9-45-5-9-12-8-29 0-43Z" fill="#f3b35d"/>
+  <path d="M550 194c-35-42-69-64-101-62-22 1-42 16-58 32l-72 56c-11 9-8 26 6 31 7 3 16 2 22-3l44-30-31 28c-12 11-2 31 14 27 5-1 9-4 13-7l46-34-24 21c-12 11 0 30 15 25 4-1 8-3 11-6l65-51 25 22c14 12 34 9 45-5 9-12 8-29 0-43Z" fill="#68b6ad"/>
+  <path d="M320 180v-22" stroke="#617c9a" stroke-width="8" stroke-linecap="round"/>
+</svg>
