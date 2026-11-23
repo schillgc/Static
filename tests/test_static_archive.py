@@ -7,9 +7,6 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = sorted(ROOT.rglob("*.html"))
-LEGACY_MEDIA_EXCEPTION = (
-    Path("HTML 5 & CSS 3/Bootstrap 4/Elena Sarah Mattia (aka Lori)/Lori_Mattia.html")
-)
 
 
 class PageParser(HTMLParser):
@@ -73,10 +70,6 @@ class StaticArchiveTests(unittest.TestCase):
         failures = []
         for page in HTML_FILES:
             relative_page = page.relative_to(ROOT)
-            # This older personal-photo exercise references media that is not in
-            # the repository tree. Its source/rights recovery is tracked separately.
-            if relative_page == LEGACY_MEDIA_EXCEPTION:
-                continue
             parser = PageParser()
             parser.feed(page.read_text(encoding="utf-8", errors="replace"))
             for reference in parser.references:
@@ -95,6 +88,20 @@ class StaticArchiveTests(unittest.TestCase):
             if path.is_file()
         ]
         self.assertEqual(leftovers, [])
+
+
+class ArchivedPersonalMediaTests(unittest.TestCase):
+    def test_personal_photo_exercise_is_text_only_and_not_indexed(self):
+        page = ROOT / "HTML 5 & CSS 3/Bootstrap 4/Elena Sarah Mattia (aka Lori)/Lori_Mattia.html"
+        html = page.read_text(encoding="utf-8").lower()
+        self.assertIn('name="robots" content="noindex, nofollow"', html)
+        self.assertIn("no personal photographs", html)
+        self.assertIn("explicit consent", html)
+        self.assertNotIn("<img", html)
+        self.assertNotIn("static", html)
+        self.assertNotIn(".jpg", html)
+        self.assertNotIn(".png", html)
+        self.assertNotIn("Lori", html)
 
 
 if __name__ == "__main__":
