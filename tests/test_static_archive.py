@@ -7,9 +7,6 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = sorted(ROOT.rglob("*.html"))
-LEGACY_MEDIA_EXCEPTION = (
-    Path("HTML 5 & CSS 3/Bootstrap 4/Elena Sarah Mattia (aka Lori)/Lori_Mattia.html")
-)
 
 
 class PageParser(HTMLParser):
@@ -99,3 +96,14 @@ class StaticArchiveTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+class ArchivedPersonalMediaTests(unittest.TestCase):
+    def test_personal_photo_exercise_is_text_only_and_not_indexed(self):
+        page = ROOT / "HTML 5 & CSS 3/Bootstrap 4/Elena Sarah Mattia (aka Lori)/Lori_Mattia.html"
+        html = page.read_text(encoding="utf-8").lower()
+        self.assertIn('name="robots" content="noindex, nofollow"', html)
+        self.assertIn("no personal photographs", html)
+        self.assertIn("explicit consent", html)
+        self.assertNotIn("<img", html)
+        self.assertNotIn("static\\\\images", html)
+        self.assertNotIn("static\\\\css", html)
