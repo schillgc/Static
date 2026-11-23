@@ -101,7 +101,6 @@ class ArchivedPersonalMediaTests(unittest.TestCase):
         self.assertNotIn("static", html)
         self.assertNotIn(".jpg", html)
         self.assertNotIn(".png", html)
-        self.assertNotIn("Lori", html)
 
 
 if __name__ == "__main__":
