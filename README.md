@@ -46,3 +46,8 @@ The workflow validates document language/title, image alternative text, stable l
 ## Security
 
 See [SECURITY.md](SECURITY.md) for this repository's security, privacy, and responsible-use guidance.
+
+
+## Personal-media archive boundary
+
+A historical photo-exercise page has been reduced to a noindex, text-only archive notice because its original media is absent and publication rights/consent are not documented. Do not add substitute or recovered personal imagery unless the original source, publication rights, and explicit consent from the people depicted are confirmed.
