@@ -9,6 +9,15 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = sorted(ROOT.rglob("*.html"))
 
 
+def _is_within_archive_root(target: Path) -> bool:
+    """Return whether a resolved local reference stays inside this repository."""
+    try:
+        target.relative_to(ROOT.resolve())
+        return True
+    except ValueError:
+        return False
+
+
 class PageParser(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -77,9 +86,19 @@ class StaticArchiveTests(unittest.TestCase):
                 if parsed.scheme or parsed.netloc or not parsed.path or parsed.path.startswith("/"):
                     continue
                 target = (page.parent / unquote(parsed.path)).resolve()
-                if not target.exists():
+                if not _is_within_archive_root(target):
+                    failures.append(f"{relative_page} -> {reference} (path escapes repository root)")
+                elif not target.exists():
                     failures.append(f"{relative_page} -> {reference}")
         self.assertEqual(failures, [], f"Missing local assets: {failures}")
+
+    def test_local_asset_paths_cannot_escape_repository_root(self):
+        page = ROOT / "HTML 5 & CSS 3" / "sample.html"
+        inside = (page.parent / "assets" / "image.png").resolve()
+        encoded_traversal = (page.parent / unquote("%2e%2e/%2e%2e/outside.png")).resolve()
+
+        self.assertTrue(_is_within_archive_root(inside))
+        self.assertFalse(_is_within_archive_root(encoded_traversal))
 
     def test_generated_macos_metadata_is_not_tracked(self):
         leftovers = [
